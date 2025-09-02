@@ -54,3 +54,8 @@ body {
   font-size: 14px;
   color: #555;
 }
+@media (max-width: 640px){
+ .trending-grid{
+  grid-template-columns: 1fr;
+ }
+}
