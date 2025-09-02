@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import BookFinder from "./components/Searchbar";
+import BookDetails from "./components/Bookcard";
+import Favorites from "./components/Favourites";
+import { useState } from "react";
+import "./App.css";
+import { FaHeart } from "react-icons/fa";
 
-function App() {
+
+export default function App() {
+  const [favourites, setFavourites] = useState([]);
+  
+
+  const addToFavourites = (book) => {
+    if (!favourites.find((fav) => fav.key === book.key)) {
+      setFavourites([...favourites, book]);
+    }
+  };
+
+  const removeFromFavourites = (bookKey) => {
+    setFavourites(favourites.filter((fav) => fav.key !== bookKey));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* ✅ Navbar with CSS class */}
+      <nav className="navbar">
+        <Link to="/">Home</Link>
+        <Link to="/favorites">
+  <FaHeart style={{color:"red"}} /> My Favorites <span className="count">({favourites.length})</span>
+        </Link>
+      </nav>
+
+      <div className="app-container">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <BookFinder
+                favourites={favourites}
+                addToFavourites={addToFavourites}
+              />
+            }
+          />
+          <Route
+            path="/book/:id"
+            element={
+              <BookDetails
+                favourites={favourites}
+                addToFavourites={addToFavourites}
+              />
+            }
+          />
+          <Route
+            path="/favorites"
+            element={
+              <Favorites
+                favourites={favourites}
+                removeFromFavourites={removeFromFavourites}
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
-
-export default App;
