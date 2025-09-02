@@ -6,6 +6,7 @@ body {
 }
 
 .trending-container {
+ width: 100%;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -57,5 +58,7 @@ body {
 @media (max-width: 640px){
  .trending-grid{
   grid-template-columns: 1fr;
+  gap: 0.5rem;
+    padding: 0 10px;
  }
 }
