@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Searchbar.css";
 import TrendingBooks from "./Trendingbooks";
-
+import micimage from "./image.png"
+import searchimg from "./search.png"
 export default function BookFinder({
   favourites,
   addToFavourites,
@@ -102,9 +103,9 @@ export default function BookFinder({
           onKeyDown={handleKeyDown}
         />
 
-        <button onClick={() => handleSearch()}>Search</button>
+        <button onClick={() => handleSearch()} className="search-btn"><img src={searchimg}></img></button>
         <button onClick={handleVoiceSearch} className="mic-btn">
-          {listening ? "🎙️ Listening..." : "🎤"}
+          {listening ? "🎙️ Listening..." :<img src={micimage}></img> }
         </button>
       </div>
 

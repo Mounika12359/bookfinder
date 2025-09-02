@@ -23,7 +23,6 @@ export default function App() {
 
   return (
     <Router>
-      {/* ✅ Navbar with CSS class */}
       <nav className="navbar">
         <Link to="/">Home</Link>
         <Link to="/favorites">

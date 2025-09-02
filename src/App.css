@@ -54,3 +54,49 @@ body {
 .container {
   padding: 20px 40px;
 }
+
+/* Dark Mode Wrapper */
+.dark body {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark .navbar {
+  background: linear-gradient(90deg, #1e1e1e, #2a2a2a);
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+.dark .nav-links a {
+  color: #f0f0f0;
+}
+
+.dark .nav-links a.active {
+  background: #333;
+  color: #4facfe;
+}
+
+.dark .nav-links a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .container {
+  background-color: #181818;
+}
+
+/* Optional: dark mode for cards and buttons */
+.dark .book-card,
+.dark .trending-card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+.dark button {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+.dark button:hover {
+  background-color: #3a3a3a;
+}
